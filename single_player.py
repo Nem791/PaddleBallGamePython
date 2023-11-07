@@ -212,18 +212,18 @@ def game_single(g, menu_buttons):
 
     def restart_game():
         # Restart the game
-        nut_restart.destroy()
-        nut_quit.destroy()
-        nut_return_menu.destroy()
+        button_restart.destroy()
+        button_quit.destroy()
+        button_return_menu.destroy()
         g.canvas.delete('all')
         g.background = g.canvas.create_image(0, 0, image=g.tempBackground, anchor='nw')
         game_single(g, menu_buttons)
 
     def return_menu():
         # Return to the main menu
-        nut_restart.destroy()
-        nut_quit.destroy()
-        nut_return_menu.destroy()
+        button_restart.destroy()
+        button_quit.destroy()
+        button_return_menu.destroy()
         g.canvas.delete('all')
         g.backgroundLabel = Label(g.tk, image=g.backgroundImage)
         g.backgroundLabel.place(x=0, y=0)
@@ -232,13 +232,13 @@ def game_single(g, menu_buttons):
 
     def start_game(speed):
         # Start the game with the given speed
-        global nut_restart, nut_quit, nut_return_menu
+        global button_restart, button_quit, button_return_menu
         paddle = Paddle(g.canvas)
         score = Score(g.canvas, 'white')
         ball = Ball(g.canvas, paddle, score)
-        nut_1.destroy()
-        nut_2.destroy()
-        nut_3.destroy()
+        button_1.destroy()
+        button_2.destroy()
+        button_3.destroy()
         game_over = g.canvas.create_text(300, 100, text='Game Over', font=('Helvetica', 24), fill='red', state='hidden')
 
         while True:
@@ -248,12 +248,12 @@ def game_single(g, menu_buttons):
 
             if ball.hit_bottom:
                 # g.winSound()
-                nut_restart = Button(g.tk, image=g.restartPic, command=restart_game)
-                nut_restart.place(x=150, y=200, anchor='center')
-                nut_return_menu = Button(g.tk, image=g.menuPic, command=return_menu)
-                nut_return_menu.place(x=300, y=200, anchor='center')
-                nut_quit = Button(g.tk, image=g.quitPic, command=quit)
-                nut_quit.place(x=450, y=200, anchor='center')
+                button_restart = Button(g.tk, image=g.restartPic, command=restart_game)
+                button_restart.place(x=150, y=200, anchor='center')
+                button_return_menu = Button(g.tk, image=g.menuPic, command=return_menu)
+                button_return_menu.place(x=300, y=200, anchor='center')
+                button_quit = Button(g.tk, image=g.quitPic, command=quit)
+                button_quit.place(x=450, y=200, anchor='center')
                 time.sleep(0)
                 g.canvas.itemconfig(game_over, state='normal')
                 break
@@ -261,9 +261,9 @@ def game_single(g, menu_buttons):
             g.tk.update()
             time.sleep(speed)
 
-    nut_1 = Button(g.tk, image=g.pic_speed_1, command=lambda: start_game(0.03))
-    nut_1.place(x=150, y=200, anchor='center')
-    nut_2 = Button(g.tk, image=g.pic_speed_2, command=lambda: start_game(0.02))
-    nut_2.place(x=300, y=200, anchor='center')
-    nut_3 = Button(g.tk, image=g.pic_speed_3, command=lambda: start_game(0.01))
-    nut_3.place(x=450, y=200, anchor='center')
+    button_1 = Button(g.tk, image=g.pic_speed_1, command=lambda: start_game(0.03))
+    button_1.place(x=150, y=200, anchor='center')
+    button_2 = Button(g.tk, image=g.pic_speed_2, command=lambda: start_game(0.02))
+    button_2.place(x=300, y=200, anchor='center')
+    button_3 = Button(g.tk, image=g.pic_speed_3, command=lambda: start_game(0.01))
+    button_3.place(x=450, y=200, anchor='center')

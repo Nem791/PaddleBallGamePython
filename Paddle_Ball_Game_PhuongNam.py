@@ -85,37 +85,37 @@ creditPic = ImageTk.PhotoImage(open_credit_pic)
 
 def menu_buttons():
     def hide():
-        nut.destroy()
-        nut1.destroy()
-        nut_credit.destroy()
-        nut_exit.destroy()
+        button.destroy()
+        button1.destroy()
+        button_credit.destroy()
+        button_exit.destroy()
 
     def credits():
         g.creditLabel = Label(g.tk, image=g.crepic)
         g.creditLabel.place(x=150, y=100)
-        global nut_x
-        nut_x = Button(g.tk, image=g.x_button_pic, command=quit_credits)
-        nut_x.place(x=480, y=85, anchor='center')
+        global button_x
+        button_x = Button(g.tk, image=g.x_button_pic, command=quit_credits)
+        button_x.place(x=480, y=85, anchor='center')
 
     def quit_credits():
         g.creditLabel.destroy()
-        nut_x.destroy()
+        button_x.destroy()
 
     # Singleplayer button
-    nut1 = Button(g.tk, image=newPic, command=lambda: [hide(), game_single(g, menu_buttons)])
-    nut1.place(x=300, y=80, anchor='center')
+    button1 = Button(g.tk, image=newPic, command=lambda: [hide(), game_single(g, menu_buttons)])
+    button1.place(x=300, y=80, anchor='center')
 
     # Multiplayer Button
-    nut = Button(g.tk, image=newPic2, command=lambda: [hide(), game_multi(g, menu_buttons)])
-    nut.place(x=300, y=160, anchor='center')
+    button = Button(g.tk, image=newPic2, command=lambda: [hide(), game_multi(g, menu_buttons)])
+    button.place(x=300, y=160, anchor='center')
 
     # Credits Button
-    nut_credit = Button(g.tk, image=creditPic, command=credits)
-    nut_credit.place(x=300, y=240, anchor='center')
+    button_credit = Button(g.tk, image=creditPic, command=credits)
+    button_credit.place(x=300, y=240, anchor='center')
 
     # Exit Button
-    nut_exit = Button(g.tk, image=exitPic, command=g.tk.quit)
-    nut_exit.place(x=300, y=320, anchor='center')
+    button_exit = Button(g.tk, image=exitPic, command=g.tk.quit)
+    button_exit.place(x=300, y=320, anchor='center')
 
 
 menu_buttons()

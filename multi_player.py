@@ -263,18 +263,18 @@ def game_multi(g, menu_buttons):
 
     def restartGame():
         # Destroy buttons and reset the game for a restart
-        nutRestart.destroy()
-        nutQuit.destroy()
-        nutReturnMenu.destroy()
+        buttonRestart.destroy()
+        buttonQuit.destroy()
+        buttonReturnMenu.destroy()
         g.canvas.delete('all')
         g.background = g.canvas.create_image(0, 0, image=g.tempBackground, anchor='nw')
         game_multi(g, menu_buttons)
 
     def returnMenu():
         # Return to the main menu
-        nutRestart.destroy()
-        nutQuit.destroy()
-        nutReturnMenu.destroy()
+        buttonRestart.destroy()
+        buttonQuit.destroy()
+        buttonReturnMenu.destroy()
         g.canvas.delete('all')
         g.backgroundLabel = Label(g.tk, image=g.backgroundImage)
         g.backgroundLabel.place(x=0, y=0)
@@ -294,9 +294,9 @@ def game_multi(g, menu_buttons):
         blue_win = g.canvas.create_text(300, 100, text='Blue win', font=('Helvetica', 24), fill='blue', state='hidden')
 
         # Destroy speed selection buttons
-        nut1.destroy()
-        nut2.destroy()
-        nut3.destroy()
+        button1.destroy()
+        button2.destroy()
+        button3.destroy()
 
         while 1:
             if ball.hit_bottom == False and ball.hit_top == False:
@@ -321,20 +321,20 @@ def game_multi(g, menu_buttons):
 
     def create_restart_buttons():
         # Create buttons for restart, return to the menu, and quit
-        global nutRestart
-        global nutQuit
-        global nutReturnMenu
-        nutRestart = Button(g.tk, image=g.restartPic, command=restartGame)
-        nutRestart.place(x=150, y=200, anchor='center')
-        nutReturnMenu = Button(g.tk, image=g.menuPic, command=returnMenu)
-        nutReturnMenu.place(x=300, y=200, anchor='center')
-        nutQuit = Button(g.tk, image=g.quitPic, command=quit)
-        nutQuit.place(x=450, y=200, anchor='center')
+        global buttonRestart
+        global buttonQuit
+        global buttonReturnMenu
+        buttonRestart = Button(g.tk, image=g.restartPic, command=restartGame)
+        buttonRestart.place(x=150, y=200, anchor='center')
+        buttonReturnMenu = Button(g.tk, image=g.menuPic, command=returnMenu)
+        buttonReturnMenu.place(x=300, y=200, anchor='center')
+        buttonQuit = Button(g.tk, image=g.quitPic, command=quit)
+        buttonQuit.place(x=450, y=200, anchor='center')
 
     # Create speed selection buttons
-    nut1 = Button(g.tk, image=g.pic_speed_1, command=lambda: startgame(0.03))
-    nut1.place(x=150, y=200, anchor='center')
-    nut2 = Button(g.tk, image=g.pic_speed_2, command=lambda: startgame(0.02))
-    nut2.place(x=300, y=200, anchor='center')
-    nut3 = Button(g.tk, image=g.pic_speed_3, command=lambda: startgame(0.01))
-    nut3.place(x=450, y=200, anchor='center')
+    button1 = Button(g.tk, image=g.pic_speed_1, command=lambda: startgame(0.03))
+    button1.place(x=150, y=200, anchor='center')
+    button2 = Button(g.tk, image=g.pic_speed_2, command=lambda: startgame(0.02))
+    button2.place(x=300, y=200, anchor='center')
+    button3 = Button(g.tk, image=g.pic_speed_3, command=lambda: startgame(0.01))
+    button3.place(x=450, y=200, anchor='center')
