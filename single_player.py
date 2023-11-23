@@ -9,7 +9,7 @@ image_dir = "img"
 
 # Single player
 def game_single(g, menu_buttons):
-    # Xoa background menu
+    # Xoa background menu 
     g.backgroundLabel.destroy()
 
     class Ball:
